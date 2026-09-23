@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -6,6 +6,7 @@ import { MakerService } from './maker.service.js';
 import { MakerController } from './maker.controller.js';
 import { Maker } from './entities/maker.entity.js';
 
+@Global()
 @Module({
   imports: [
     TypeOrmModule.forFeature([Maker]), // daftarkan Repository<Maker> supaya bisa di-inject
